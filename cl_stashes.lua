@@ -39,6 +39,7 @@ RegisterNetEvent('qb-business:client:openStash', function(currentstash, stash)
 
     local PlayerData = QBCore.Functions.GetPlayerData()
     local PlayerJob = PlayerData.job.name
+    local PlayerGang = PlayerData.gang.name
     local canOpen = false
 
     if Config.PoliceOpen then 
@@ -58,6 +59,12 @@ RegisterNetEvent('qb-business:client:openStash', function(currentstash, stash)
             if QBCore.Functions.GetPlayerData().citizenid == v then
                 canOpen = true
             end
+        end
+    end
+
+    if Config.Stashes[currentstash].gangrequired then
+        if PlayerGang == Config.Stashes[currentstash].gang then
+            canOpen = true
         end
     end
 
