@@ -1,3 +1,5 @@
+local QBCore = exports['qb-core']:GetCoreObject()
+
 Citizen.CreateThread(function()
     local alreadyEnteredZone = false
     local text = '<b>[E] Open Stash</b>'
