@@ -73,6 +73,7 @@ RegisterNetEvent('qb-business:client:openStash', function(currentstash, stash)
 
     if canOpen then 
         TriggerServerEvent("inventory:server:OpenInventory", "stash", Config.Stashes[currentstash].stashName, {maxweight = Config.Stashes[currentstash].stashSize, slots = Config.Stashes[currentstash].stashSlots})
+        TriggerServerEvent("InteractSound_SV:PlayOnSource", "StashOpen", 0.5)
         TriggerEvent("inventory:client:SetCurrentStash", Config.Stashes[currentstash].stashName)
     else
         QBCore.Functions.Notify('You cannot open this', 'error')
